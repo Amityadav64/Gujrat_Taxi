@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Taxi - Gujarat Taxi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- PREMIUM TAXI LOADER -->
+<!-- PREMIUM LOADER -->
+<div id="loader">
+
+  <!-- Cinematic Background -->
+  <div class="loader-bg"></div>
+
+  <!-- Light Lines -->
+  <div class="light-line line1"></div>
+  <div class="light-line line2"></div>
+
+  <!-- Taxi -->
+  <img src="images/about_taxi.jpeg" class="loader-car">
+
+  <!-- Loading Text -->
+  <div class="loading-text">GUJARAT TAXI</div>
+
+</div>
+
+
+<nav class="navbar">
+  <div class="logo">
+  <img src="images/gt_logo.png" alt="Gujarat Taxi Logo">
+  <span>Gujarat Taxi</span>
+</div>
+  <div class="menu-toggle">☰</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="routes.html">Routes</a></li>
+    <li><a href="book.html">Book Now</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="booking-hero-section">
+  <div class="booking-form-card">
+    <h2>Book Your Taxi</h2>
+    <p style="color: #666; margin-bottom: 20px;">Complete the details below to book via WhatsApp</p>
+    
+    <div class="form-group">
+      <input type="text" id="name" placeholder="Your Full Name">
+    </div>
+
+    <div class="form-group">
+      <input type="number" id="phone" placeholder="Mobile Number">
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="pickupCity" placeholder="Pickup City">
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="dropCity" placeholder="Drop City">
+    </div>
+
+    <div class="form-group">
+      <label for="car" style="display:block; text-align:left; margin-bottom:5px; font-size: 0.8rem; color:#888;">Select Vehicle Type</label>
+      <select id="car">
+        <option value="Sedan (Swift/Dzire)">Sedan (Swift/Dzire)</option>
+        <option value="SUV (Ertiga/Creta)">SUV (Ertiga/Creta)</option>
+        <option value="Premium SUV (Innova Crysta)">Premium SUV (Innova Crysta)</option>
+        <option value="Luxury (Fortuner/Audi)">Luxury (Fortuner/Audi)</option>
+        <option value="Group (Traveller/Bus)">Group (Traveller/Bus)</option>
+      </select>
+    </div>
+
+    <button class="confirm-btn" onclick="bookTaxi()">Confirm Booking on WhatsApp →</button>
+  </div>
+</section>
+
+<script src="script.js"></script>
+
+<style>
+  /* This section handles the background and centering */
+  /* BOOKING HERO SECTION */
+.booking-hero-section {
+
+  background-color: #2c3e50;
+
+  background-image:
+    linear-gradient(
+      rgba(0,0,0,0.35),
+      rgba(0,0,0,0.35)
+    ),
+    url('images/somnath_temple_image.jpeg');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+
+  .booking-hero-section {
+
+    background-position: center center;
+
+    /* REMOVE FIXED ON MOBILE */
+    background-attachment: scroll;
+
+    min-height: 100vh;
+
+    padding: 20px 15px;
+  }
+
+  .booking-form-card {
+    padding: 25px;
+    border-radius: 18px;
+  }
+}
+
+  .booking-form-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    z-index: 10;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .booking-form-card input, 
+  .booking-form-card select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-sizing: border-box; 
+    outline: none;
+  }
+
+  .confirm-btn {
+    background: #ffb400;
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+  }
+
+  .confirm-btn:hover {
+    background: #e6a300;
+    transform: scale(1.03);
+  }
+
+  /* Ensures navbar doesn't hide behind the image */
+  .navbar {
+    position: relative;
+    z-index: 100;
+  }
+</style>
+
+</body>
+</html>

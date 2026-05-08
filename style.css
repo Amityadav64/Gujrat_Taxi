@@ -1,0 +1,1788 @@
+/* --- YOUR ORIGINAL STYLES (Keep everything working) --- */
+body { font-family: Arial; margin:0; background: #f9f9f9; }
+
+.navbar {
+  display:flex;
+  justify-content:space-between;
+  background:black;
+  color:white;
+  padding:15px;
+  align-items: center;
+}
+
+.nav-links {
+  list-style:none;
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a { color:white; text-decoration:none; }
+
+.hero {
+  height:80vh;
+  background:#333;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Original Search Section */
+.search-section {
+  text-align: center;
+  padding: 40px;
+  background: white;
+}
+
+.search-section input {
+  padding: 12px;
+  margin: 10px;
+  width: 200px;
+}
+
+.search-section button {
+  padding: 12px 20px;
+  background: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* Original Grid for Features/Services */
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap:25px;
+  padding:20px;
+}
+
+.card {
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Original Slider logic */
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: 1s;
+  text-align: center;
+}
+
+.slide.active { opacity: 1; }
+
+.slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.slide h1, .slide p { position: relative; z-index: 1; }
+
+/* --- NEW ROUTE CARD STYLES (Added without affecting others) --- */
+
+@keyframes rotateDots {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.route-card {
+  background: #fff;
+  border-radius: 25px;
+  overflow: visible; 
+  text-align: center;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  border: 1px solid #eee;
+}
+
+.car-img-container {
+  padding: 20px;
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.route-card h3 {
+  font-size: 1.1rem;
+  margin: 10px;
+  color: #000;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.all-in-one {
+  color: #ffb400;
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 45px;
+}
+
+.details-box {
+  background: #1a1a1a;
+  color: white;
+  border-radius: 25px;
+  padding: 50px 25px 25px;
+  position: relative;
+}
+
+.icon-badge {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  background: #ffb400;
+  border-radius: 50%;
+  z-index: 5;
+  border: 4px solid #fff;
+}
+
+.icon-badge img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.icon-badge::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  border: 2px dashed #ffb400;
+  border-radius: 50%;
+  animation: rotateDots 6s linear infinite;
+}
+
+.inclusions {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.inclusions li {
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #333;
+  padding-bottom: 5px;
+}
+
+.check { color: #4caf50; margin-right: 5px; }
+
+.book-now-btn {
+  background: #ffb400;
+  color: #000;
+  display: block;
+  padding: 12px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.book-now-btn:hover { background: #ffd700; }
+
+
+/* HERO SLIDER */
+.hero-slider {
+  position: relative;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  opacity: 0;
+  transition: 1s;
+  text-align: center;
+}
+
+/* BACKGROUND IMAGES */
+.slide:nth-child(1) {
+  background: url('https://images.unsplash.com/photo-1502877338535-766e1452684a') center/cover;
+}
+.slide:nth-child(2) {
+  background: url('https://images.unsplash.com/photo-1590362891991-f776e747a588') center/cover;
+}
+.slide:nth-child(3) {
+  background: url('https://images.unsplash.com/photo-1511919884226-fd3cad34687c') center/cover;
+}
+.slide:nth-child(4) {
+  background: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8') center/cover;
+}
+
+/* DARK OVERLAY */
+.slide::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.slide h1, .slide p {
+  position: relative;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* content */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: white;
+}
+
+/* TEXT ANIMATION */
+.title {
+  font-size: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+.subtitle {
+  margin-top: 10px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+.buttons {
+  margin-top: 20px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+
+/* ACTIVE ANIMATION DELAYS */
+.slide.active .title {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.slide.active .subtitle {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.slide.active .buttons {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.6s;
+}
+
+/* BUTTONS */
+/* BUTTON CONTAINER */
+/* BUTTONS */
+.btn{
+  display: inline-block;
+  padding: 14px 28px;
+  margin-right: 12px;
+  border-radius: 50px;
+
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+
+  position: relative;
+  overflow: hidden;
+
+  transition: 0.35s ease;
+}
+
+/* CALL BUTTON */
+.call{
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 2px solid #fcd535;
+  backdrop-filter: blur(8px);
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp{
+  background: rgba(255,255,255,0.15);
+  color: white;
+  border: 2px solid #fcd535;
+  backdrop-filter: blur(8px);
+}
+
+/* YELLOW FILL EFFECT */
+.btn::before{
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: #fcd535;
+  transition: 0.4s ease;
+
+  z-index: -1;
+}
+
+/* HOVER EFFECT */
+.btn:hover::before{
+  left: 0;
+}
+
+/* BUTTON COLOR CHANGE */
+.btn:hover{
+  color: black;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(252,213,53,0.7);
+}
+
+/* TOUCH EFFECT MOBILE */
+.btn:active{
+  transform: scale(0.96);
+  background: #fcd535;
+  color: black;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+  .btn{
+    padding: 12px 22px;
+    font-size: 15px;
+  }
+
+}
+
+/* SEARCH SECTION */
+.search-section {
+  text-align: center;
+  padding: 40px;
+  background: white;
+}
+
+.search-section input {
+  padding: 12px;
+  margin: 10px;
+  width: 200px;
+}
+
+.search-section button {
+  padding: 12px 20px;
+  background: green;
+  color: white;
+  border: none;
+}
+
+/*Search section effect after tapping */
+html {
+  scroll-behavior: smooth;
+}
+
+.route-card:target {
+  border: 3px solid #fcd535;
+  transform: scale(1.02);
+  transition: 0.4s ease;
+  box-shadow: 0 0 25px rgba(252, 213, 53, 0.7);
+}
+
+
+/* FEATURES */
+.features {
+  padding: 50px;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  display: inline-block;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #0b0e11;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: black;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fcd535;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  height: 90vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  transition: 1s;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+}
+
+.hero-content {
+  position: absolute;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s;
+}
+
+.hero-content.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero h1 {
+  font-size: 50px;
+  color: #fcd535;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+/* SEARCH */
+.search-section {
+  padding: 40px;
+  text-align: center;
+}
+
+.search-box {
+  margin-top: 20px;
+}
+
+.search-box input {
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+}
+
+.search-box button {
+  padding: 10px 20px;
+  background: #fcd535;
+  border: none;
+  cursor: pointer;
+}
+
+/* INFO STRIP */
+.info-strip {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px;
+  background: #111;
+}
+
+.info-box h3 {
+  color: #fcd535;
+  font-size: 28px;
+}
+
+.info-box p {
+  margin-top: 5px;
+}
+
+/* FEATURES */
+.features {
+  padding: 40px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #1e2329;
+  padding: 20px;
+  border-radius: 10px;
+}
+/* SERVICE HERO */
+/* --- UPDATED SERVICE HERO --- */
+/* --- SERVICE HERO MAIN CONTAINER --- */
+.service-hero {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    background: #000; /* Visible during the 90% frame state */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    margin: 40px 0;
+}
+
+/* --- THE CURVED FRAME (THE CLIPPER) --- */
+.service-hero-frame {
+    width: 90%;          /* Initial gap */
+    height: 90%;         /* Initial gap */
+    position: relative;
+    overflow: hidden;    /* Essential for clipping the zoom */
+    border-radius: 40px; /* High-end curved edges */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    transition: all 0.7s ease-in-out; /* Smooth expansion */
+    z-index: 1;
+}
+
+/* --- THE ZOOMING BACKGROUND LAYER --- */
+.service-hero-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Double check path: use ../images/ if CSS is in a folder */
+    background: url('images/Our_premium_services_image.jpeg') center/cover no-repeat;
+    transition: transform 0.7s ease-in-out;
+    z-index: -1;
+}
+
+/* --- THE HOVER TRIGGERS --- */
+
+/* 1. Frame expands and corners flatten */
+.service-hero:hover .service-hero-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+/* 2. Background image zooms in */
+.service-hero:hover .service-hero-frame::before {
+    transform: scale(1.15);
+}
+
+/* --- OVERLAY & TEXT --- */
+.service-hero-frame .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens image for text contrast */
+    z-index: 0;
+}
+
+.service-hero-frame h1,
+.service-hero-frame p {
+    position: relative;
+    z-index: 2;
+}
+
+.service-hero-frame h1 {
+    font-size: 48px;
+    color: #fcd535;
+    margin-bottom: 10px;
+}
+
+.service-hero-frame p {
+    font-size: 18px;
+    max-width: 600px;
+}
+/* SERVICE BLOCK */
+/* SERVICE SECTION WRAPPER */
+/* --- UPDATED SERVICE BLOCKS --- */
+/* ================= PREMIUM SERVICE SECTION ================= */
+
+.service-block {
+    width: 100%;
+    min-height: auto;
+
+    padding: 10px 20px;   /* reduced top-bottom spacing */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #0b0e11;
+
+    margin-bottom: 10px; /* smaller gap between cards */
+}
+
+/* MAIN FRAME */
+.service-frame {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    min-height: 500px;
+
+    border-radius: 30px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background-size: cover;
+    background-position: center;
+
+    transition: all 0.5s ease;
+}
+
+/* BACKGROUND IMAGES */
+.one-way .service-frame {
+    background-image: url('images/One_way_taxi_image.jpeg');
+}
+
+.round-trip .service-frame {
+    background-image: url('images/Round_trip_image.jpeg');
+}
+
+.airport .service-frame {
+    background-image: url('images/Airport_transfer_image.jpeg');
+}
+
+.outstation .service-frame {
+    background-image: url('images/Outstation_travel_image.jpeg');
+}
+
+.family .service-frame {
+    background-image: url('images/Family_and_group_travel_image.jpeg');
+}
+
+/* DARK OVERLAY */
+.service-frame::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.85) 10%,
+        rgba(0,0,0,0.35) 60%,
+        rgba(0,0,0,0.2) 100%
+    );
+    z-index: 1;
+}
+
+/* CONTENT */
+.service-block .content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 650px;
+
+    padding: 60px;
+}
+
+/* TITLE */
+.reveal-text {
+    font-size: 32px;
+    line-height: 1.1;
+    color: #fcd535;
+    font-weight: 800;
+    margin-bottom: 20px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+/* DESCRIPTION */
+.reveal-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #f1f1f1;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease 0.3s;
+}
+
+/* ACTIVE ANIMATION */
+.service-block.active .reveal-text,
+.service-block.active .reveal-desc {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* HOVER EFFECT */
+.service-frame:hover {
+    transform: scale(1.01);
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+    .service-block {
+    width: 100%;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+}
+
+    .service-frame {
+        min-height: 520px;
+        border-radius: 24px;
+
+        align-items: flex-end;
+        background-position: center;
+    }
+
+    /* BETTER MOBILE OVERLAY */
+    .service-frame::before {
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.30) 5%,
+        rgba(0,0,0,0.12) 40%,
+        rgba(0,0,0,0.02) 100%
+    );
+}
+    .service-block .content {
+    width: calc(100% - 40px);
+    max-width: 100%;
+
+    margin: 0 auto;
+
+    padding: 24px 20px;
+
+    background: transparent;
+    backdrop-filter: none;
+
+    border-radius: 18px;
+}
+    .reveal-text {
+        font-size: 34px;
+        line-height: 1.1;
+        margin-bottom: 14px;
+
+        width: 100%;
+    }
+
+    .reveal-desc {
+    font-size: 15px;
+    line-height: 1.7;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding-right: 10px;
+}
+
+    /* PREMIUM GLASS EFFECT */
+    .content {
+        backdrop-filter: blur(3px);
+        border-radius: 18px;
+    }
+}
+/* ================= EXTRA PREMIUM TOUCH ================= */
+
+/* smooth appearance */
+.service-frame {
+    animation: serviceFade 1s ease;
+}
+
+@keyframes serviceFade {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* CONTACT HERO */
+/* --- OUTER CONTAINER --- */
+.contact-hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* This creates the dark 'gaps' on the sides */
+    overflow: hidden;
+    position: relative;
+}
+
+/* --- THE CURVED FRAME --- */
+.contact-hero-frame {
+    width: 90%;           /* Initial gap on left/right */
+    height: 90%;          /* Initial gap on top/bottom */
+    position: relative;
+    overflow: hidden;
+    border-radius: 40px;  /* The curved edges */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    transition: all 0.7s ease-in-out; /* Smooth expansion */
+    z-index: 1;
+}
+
+/* --- THE BACKGROUND IMAGE LAYER --- */
+.contact-hero-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/about_taxi.jpeg') center/cover no-repeat;
+    transition: transform 0.7s ease-in-out; /* Smooth zoom */
+    z-index: -1;
+}
+
+/* --- THE HOVER TRIGGER --- */
+/* 1. Frame expands to 100% and corners flatten */
+.contact-hero:hover .contact-hero-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px; 
+}
+
+/* 2. Image inside zooms in slightly 
+.contact-hero:hover .contact-hero-frame::before {
+    transform: scale(1.15); 
+} */
+
+/* --- OVERLAY & TEXT --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Makes text easier to read */
+    z-index: 0;
+}
+
+.contact-hero-frame h1, 
+.contact-hero-frame p {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-hero-frame h1 {
+    font-size: 42px;
+    color: #fcd535;
+    margin-bottom: 10px;
+}
+
+/* FORM */
+/* CONTACT FORM CONTAINER */
+.contact-form {
+  flex: 1;
+  background: #1e2329;
+  padding: 30px; /* Increased padding for a better look */
+  border-radius: 10px;
+  
+  /* --- ADDED FOR CENTERING --- */
+  max-width: 500px;      /* Prevents the dark box from stretching too wide */
+  margin: 0 auto;        /* Centers the dark box itself */
+  display: flex;         /* Allows us to center the internal items */
+  flex-direction: column;
+  align-items: center;   /* Centers the H2, inputs, and button */
+}
+
+.contact-form h2 {
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+  /* --- UPDATED WIDTH --- */
+  width: 100%;           /* Use 100% of the 500px container */
+  max-width: 400px;      /* Optional: keeps individual inputs slightly tighter */
+  
+  margin-bottom: 15px;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: #2b3139;   /* Slightly lighter than background to stand out */
+  color: white;
+  box-sizing: border-box; /* Crucial: keeps padding from breaking width */
+}
+
+.contact-form button {
+  /* --- UPDATED WIDTH --- */
+  width: 100%;
+  max-width: 400px;
+  
+  padding: 12px;
+  background: #25D366;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #1ebd5b;
+  transform: translateY(-2px);
+}
+
+/* INFO */
+.contact-info {
+  flex: 1;
+  text-align: center; /* Centers text/icons in the info boxes */
+}
+
+.info-box {
+  background: #1e2329;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+/* FLOAT WHATSAPP */
+/* UPDATED WHATSAPP FLOAT */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-decoration: none;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  
+  /* The Pulse Animation */
+  animation: pulse-green 2s infinite;
+}
+
+/* Notification Badge (The little "1") */
+.whatsapp-float::after {
+  content: '1';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff4444;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+}
+
+@keyframes pulse-green {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-5px);
+  background: #1ebd5b;
+}
+/* Advanced Shake Animation */
+.shake-error {
+  animation: shake 0.5s ease-in-out;
+  border: 1px solid #ff4444 !important;
+  box-shadow: 0 0 15px rgba(255, 68, 68, 0.4);
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  50% { transform: translateX(8px); }
+  75% { transform: translateX(-8px); }
+}
+
+
+
+
+/* ABOUT HERO */
+/* --- ABOUT HERO MAIN CONTAINER --- */
+.about-hero {
+    height: 80vh;
+    position: relative;
+    display: flex;
+    background: #000; /* Dark gaps visible when frame is 90% */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* --- THE CURVED FRAME --- */
+.about-hero-frame {
+    width: 90%;               /* Gap on left/right */
+    height: 90%;              /* Gap on top/bottom */
+    position: relative;
+    overflow: hidden;         /* Clips the image inside the curves */
+    border-radius: 40px;      /* Curved edges */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    transition: all 0.7s ease-in-out; /* Smooth expansion */
+    z-index: 1;
+}
+
+/* --- THE ZOOMING BACKGROUND --- */
+.about-hero-frame::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Ensure this path is correct based on your folder structure */
+    background: url('./images/Our_services_image.jpeg') center/cover no-repeat;
+    transition: transform 0.7s ease-in-out; /* Smooth zoom */
+    z-index: -1;
+}
+
+/* --- THE HOVER TRIGGERS --- */
+
+/* 1. Frame expands to 100% and corners flatten */
+.about-hero:hover .about-hero-frame {
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+}
+
+/* 2. Background image zooms in slightly on hover */
+.about-hero:hover .about-hero-frame::before {
+    transform: scale(1.1);
+}
+
+/* --- OVERLAY & TEXT --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Darkens image so text pops */
+    z-index: 0;
+}
+
+.about-hero-frame h1,
+.about-hero-frame p {
+    position: relative;
+    z-index: 2;
+}
+
+.about-hero-frame h1 {
+    font-size: 42px;
+    color: #fcd535;
+    margin-bottom: 10px;
+}
+
+/* ABOUT TEXT SECTION */
+.about-text {
+    text-align: center;
+    padding: 40px;
+}
+/* STATS */
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 50px;
+}
+
+.stat-box {
+  text-align: center;
+}
+
+.stat-box img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #1e2329;
+  padding: 10px;
+}
+
+.stat-box h2 {
+  margin-top: 10px;
+  color: #fcd535;
+}
+
+.stat-box p {
+  color: #ccc;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  padding: 50px;
+  text-align: center;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.testimonial-card {
+  background: #1e2329;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.testimonial-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.nav-links a.active {
+  color: #fcd535;
+  border-bottom: 2px solid #fcd535;
+  padding-bottom: 5px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+
+
+  /* HERO TEXT */
+  .hero h1 {
+    font-size: 28px;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  /* SEARCH BOX */
+  .search-box input {
+    width: 90%;
+  }
+
+  /* GRID FIX */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* CONTACT */
+  .contact-container {
+    flex-direction: column;
+  }
+
+  /* TESTIMONIAL */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* SERVICE BLOCK */
+  .service-block {
+    height: auto;
+    padding: 40px 20px;
+  }
+
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* MOBILE NAV */
+/* ================= MOBILE NAV FINAL ================= */
+/* ================= MOBILE NAV FINAL ================= */
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+
+  .navbar {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #111;
+
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    /* animation */
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition: all 0.4s ease;
+  }
+
+  .nav-links.active {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+  /* LEFT ALIGN + SPACING */
+  .nav-links li {
+    text-align: left;
+    padding: 12px 0;
+    border-bottom: 1px solid #222;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+  }
+
+}
+
+
+/* CARD BASE */
+.card {
+  position: relative;
+  height: 220px;
+  border-radius: 15px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+}
+
+/* BACKGROUND IMAGES for home page */
+/* BACKGROUND IMAGES (With Space Fix) */
+.card1 {
+  background: url('images/any%20time%20cab%20service%20availabe%20image.jpeg') center/cover no-repeat;
+}
+.card2 {
+  background: url('images/affordable%20cab%20image.jpeg') center/cover no-repeat;
+}
+.card3 {
+  background: url('images/safe%20travel%20image.jpeg') center/cover no-repeat;
+}
+.card4 {
+  background: url('images/trusted%20driver%20image.jpeg') center/cover no-repeat;
+}
+
+/* DARK OVERLAY */
+/* ================= WHY CHOOSE US (FINAL CLEAN) ================= */
+
+/* CARD BASE */
+.features .card {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  min-height: 280px;
+
+  margin: 0;
+  border-radius: 0; /* full edge-to-edge look */
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* DARK OVERLAY */
+.features .card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 1;
+}
+
+/* TEXT ABOVE OVERLAY */
+.features .card h3,
+.features .card p {
+  position: relative;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+/* GRID LAYOUT */
+.features .grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 0; /* remove side gaps */
+}
+
+/* HOVER EFFECT (DESKTOP) */
+.features .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px) {
+  .features .card {
+    height: 40vh;
+    min-height: 220px;
+  }
+}
+
+/* ================= OPTIONAL PREMIUM TOUCH ================= */
+
+/* slight zoom background effect */
+.features .card:hover::before {
+  background: rgba(0,0,0,0.65);
+}
+
+/* smooth text animation */
+.features .card h3 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.features .card p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* subtle entrance animation */
+.features .card {
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ================= INFO STRIP (PREMIUM) ================= */
+
+.info-strip {
+  display: flex;
+  gap: 20px;
+  padding: 40px 20px;
+}
+
+/* EACH BOX */
+.info-box {
+  flex: 1;
+  height: 200px;
+
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  text-align: center;
+
+  background-size: cover;
+  background-position: center;
+}
+
+/* BACKGROUND IMAGES */
+.box1 {
+  background: url('images/happy_customer_image.jpeg') center/cover;
+}
+
+.box2 {
+  background: url('images/daily_rides_image.jpeg') center/cover;
+}
+
+.box3 {
+  background: url('images/cities_covered_image.jpeg') center/cover;
+}
+
+/* DARK OVERLAY */
+.info-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1;
+}
+
+/* TEXT ABOVE */
+.info-box h3,
+.info-box p {
+  position: relative;
+  z-index: 2;
+}
+
+.info-box h3 {
+  font-size: 32px;
+  color: #fcd535;
+}
+
+.info-box p {
+  margin-top: 5px;
+}
+
+/* HOVER EFFECT */
+.info-box:hover {
+  transform: scale(1.03);
+  transition: 0.3s;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+  .info-strip {
+    flex-direction: column;
+  }
+
+  .info-box {
+    height: 150px;
+  }
+}
+
+
+/* --- BOOKING PAGE BACKGROUND FIX , it is for book.html --- */
+
+  /* Ensure this class name matches your HTML exactly! */
+.booking-hero-section {
+    /* The ../ tells the browser to go OUT of the CSS folder and look into the images folder */
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/somnath_temple_image.jpeg'); 
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.booking-form-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* Rest of your code remains perfect */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.booking-form-card input, 
+.booking-form-card select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box; /* Important so inputs don't overflow */
+}
+
+.confirm-btn {
+    background: #ffb400;
+    color: black;
+    border: none;
+    width: 100%;
+    padding: 15px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.confirm-btn:hover {
+    background: #e6a300;
+    transform: scale(1.03);
+}
+
+/* gt logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 50%;
+  image-rendering: auto;
+}
+
+
+/* =========================
+   PREMIUM CINEMATIC LOADER
+========================= */
+
+#loader{
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 999999;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BACKGROUND GLOW */
+.loader-bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+    radial-gradient(circle at center,
+    rgba(255,180,0,0.15),
+    transparent 60%),
+    #000;
+}
+
+/* SPEED LIGHTS */
+.light-line{
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(to right,
+    transparent,
+    rgba(255,255,255,0.8),
+    transparent);
+
+    animation: speedLine 0.8s linear infinite;
+}
+
+.line1{
+    top: 40%;
+}
+
+.line2{
+    top: 60%;
+    animation-delay: 0.3s;
+}
+
+@keyframes speedLine{
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(100%);
+    }
+}
+
+/* TAXI */
+.loader-car{
+    position: absolute;
+    width: 180px;
+
+    left: -250px;
+
+    animation: carRun 3s ease-in-out forwards;
+
+    filter:
+    drop-shadow(0 0 15px rgba(255,180,0,0.8))
+    drop-shadow(0 0 30px rgba(255,255,255,0.4));
+}
+
+/* FAST CAR RUN */
+@keyframes carRun{
+
+    0%{
+        left: -250px;
+        transform: scale(0.9);
+    }
+
+    70%{
+        left: 55%;
+        transform: scale(1);
+    }
+
+    100%{
+        left: 130%;
+        transform: scale(1.05);
+    }
+}
+
+/* TEXT */
+.loading-text{
+    position: absolute;
+    bottom: 80px;
+
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 6px;
+
+    animation: textGlow 1s infinite alternate;
+}
+
+@keyframes textGlow{
+    from{
+        opacity: 0.5;
+        text-shadow: 0 0 10px #ffb400;
+    }
+
+    to{
+        opacity: 1;
+        text-shadow:
+        0 0 20px #ffb400,
+        0 0 40px #ffb400;
+    }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+    .loader-car{
+        width: 120px;
+    }
+
+    .loading-text{
+        font-size: 18px;
+        letter-spacing: 3px;
+    }
+
+}

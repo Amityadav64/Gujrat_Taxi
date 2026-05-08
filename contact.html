@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Gujarat Taxi</title>
+<link rel="stylesheet" href="style.css">
+<!-- Font Awesome for the WhatsApp Icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- PREMIUM TAXI LOADER -->
+<div id="loader">
+
+  <!-- Cinematic Background -->
+  <div class="loader-bg"></div>
+
+  <!-- Light Lines -->
+  <div class="light-line line1"></div>
+  <div class="light-line line2"></div>
+
+  <!-- Taxi -->
+  <img src="images/about_taxi.jpeg" class="loader-car">
+
+  <!-- Loading Text -->
+  <div class="loading-text">GUJARAT TAXI</div>
+
+</div>
+
+
+<nav class="navbar">
+  <div class="logo">
+  <img src="images/gt_logo.png" alt="Gujarat Taxi Logo">
+  <span>Gujarat Taxi</span>
+</div>
+
+  <div class="menu-toggle">☰</div>
+  </div>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="routes.html">Routes</a></li>
+    <li><a href="book.html">Book Now</a></li>
+    <li><a href="service.html">Services</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+    <!-- This is the frame that creates the gaps and curved edges -->
+    <div class="contact-hero-frame">
+        <div class="overlay"></div>
+        <h1>Contact Us</h1>
+        <p>We are here to help you 24/7</p>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-container">
+
+  <!-- LEFT FORM -->
+  <div class="contact-form">
+    <h2>Send a Message</h2>
+
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="message" placeholder="Your Message"></textarea>
+
+    <button onclick="sendWhatsApp()">Send via WhatsApp</button>
+  </div>
+
+  <!-- RIGHT INFO -->
+  <div class="contact-info">
+
+    <div class="info-box">
+      <h3>📞 Phone</h3>
+      <p>+91 9876543210</p>
+    </div>
+
+    <div class="info-box">
+      <h3>📍 Location</h3>
+      <p>Gujarat, India</p>
+    </div>
+
+    <div class="info-box">
+      <h3>⏰ Working Hours</h3>
+      <p>24/7 Available</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FLOATING WHATSAPP -->
+<!-- Floating WhatsApp Button with Icon -->
+<a href="javascript:void(0);" class="whatsapp-float" onclick="quickWhatsApp()" title="Chat with us now!">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+
+<script src="script.js"></script>
+</body>
+</html>
