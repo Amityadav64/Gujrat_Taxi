@@ -66,11 +66,67 @@
       <input type="text" id="dropCity" placeholder="Drop City">
     </div>
 
+    <!-- Trip Selection -->
+<div class="form-group">
+  <label for="tripType" style="display:block; text-align:left; margin-bottom:5px; font-size: 0.8rem; color:#888;">Select Trip Type</label>
+  <select id="tripType">
+    <option value="One Way">One Way Trip</option>
+    <option value="Round Trip">Round Trip (Return)</option>
+    <option value="Local/Hourly">Local / Hourly Rental</option>
+    <option value="Airport Transfer">Airport Pickup/Drop</option>
+  </select>
+</div>
+
+<!-- Passenger Selection (1-7) -->
+<div class="form-group">
+  <label for="passengers" style="display:block; text-align:left; margin-bottom:5px; font-size: 0.8rem; color:#888;">Number of Passengers</label>
+  <select id="passengers">
+    <option value="1">1 Passenger</option>
+    <option value="2">2 Passengers</option>
+    <option value="3">3 Passengers</option>
+    <option value="4">4 Passengers</option>
+    <option value="5">5 Passengers</option>
+    <option value="6">6 Passengers</option>
+    <option value="7">7+ Passengers (Group)</option>
+  </select>
+</div>
+
+
+    <!-- Date Section -->
+<div class="form-group">
+  <label for="bookingDate" style="display:block; font-size: 12px; color: #666;">Select Journey Date</label>
+  <input 
+    type="date" 
+    id="bookingDate" 
+    onkeydown="return false" 
+    style="cursor: pointer;"
+  >
+</div>
+
+<script>
+  // 1. Get today's date in YYYY-MM-DD format
+  const dateField = document.getElementById('bookingDate');
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  
+  const formattedToday = `${year}-${month}-${day}`;
+
+  // 2. Set the default value to today
+  dateField.value = formattedToday;
+
+  // 3. Set the 'min' attribute so past dates are greyed out and unclickable
+  dateField.setAttribute('min', formattedToday);
+</script>
+
+
+
     <div class="form-group">
       <label for="car" style="display:block; text-align:left; margin-bottom:5px; font-size: 0.8rem; color:#888;">Select Vehicle Type</label>
       <select id="car">
         <option value="Sedan (Swift/Dzire)">Sedan (Swift/Dzire)</option>
-        <option value="SUV (Ertiga/Creta)">SUV (Ertiga/Creta)</option>
+        <option value="SUV (Ertiga/XUVS)">SUV (Ertiga/Creta)</option>
         <option value="Premium SUV (Innova Crysta)">Premium SUV (Innova Crysta)</option>
         <option value="Luxury (Fortuner/Audi)">Luxury (Fortuner/Audi)</option>
         <option value="Group (Traveller/Bus)">Group (Traveller/Bus)</option>
@@ -111,6 +167,140 @@
   padding: 20px;
 }
 
+
+/* Smooth Hover & Focus Effects */
+.booking-form-card input:focus, 
+.booking-form-card select:focus {
+  border-color: #ffb400;
+  box-shadow: 0 0 10px rgba(255, 180, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Premium Select Styling with Corrected Arrow Icon */
+.booking-form-card select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px; /* Adjusts the size of the arrow */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding-right: 40px; /* Prevents text from overlapping the arrow */
+}
+
+
+/* for calendar */
+input[type="date"] {
+  background-color: white;
+  color: #333;
+  font-family: inherit;
+}
+
+/* This makes the calendar icon match your theme */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.5); /* Makes it look subtle */
+}
+
+
+
+
+/* Modal Overlay */
+.modal-overlay {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal Content Box */
+.modal-content {
+  background: white;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  max-width: 350px;
+  width: 90%;
+  transform: scale(0.7);
+  transition: 0.3s ease-in-out;
+}
+
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+}
+
+.success-icon {
+  background: #ffb400;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  line-height: 60px;
+  font-size: 30px;
+  margin: 0 auto 20px;
+}
+
+.close-modal-btn {
+  background: #222;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 50px;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
+
+
+
+/* Success Icon Animation */
+.success-icon {
+  background: #ffb400;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  line-height: 70px;
+  font-size: 35px;
+  margin: 0 auto 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  /* The Animation */
+  animation: popIn 0.5s cubic-bezier(0.26, 0.53, 0.74, 1.48) forwards;
+}
+
+@keyframes popIn {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Modal Content Entry Animation */
+.modal-overlay.active .modal-content {
+  transform: scale(1);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+
+
+
+
+
 /* MOBILE FIX */
 @media (max-width: 768px) {
 
@@ -133,6 +323,7 @@
 }
 
   .booking-form-card {
+    margin-top: 80px;
     background: white;
     padding: 40px;
     border-radius: 20px;
@@ -182,6 +373,25 @@
     z-index: 100;
   }
 </style>
+
+<!-- Success Popup Modal -->
+<!-- Updated Success Popup Modal -->
+<div id="successModal" class="modal-overlay">
+  <div class="modal-content">
+    <div class="success-icon">✓</div>
+    
+    <!-- Added Success Message Here -->
+    <h2 style="color: #2c3e50; margin-bottom: 10px;">Success!</h2>
+    <p style="color: #666; font-size: 1rem; line-height: 1.5;">
+      Your booking details have been sent.<br>
+      <strong>Thank you for reaching out!</strong>
+    </p>
+
+    <button class="close-modal-btn" onclick="closeModal()">Great, Thanks!</button>
+  </div>
+</div>
+
+
 
 </body>
 </html>

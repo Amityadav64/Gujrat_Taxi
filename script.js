@@ -20,33 +20,100 @@ document.addEventListener("click", (e) => {
 // BOOK TAXI FUNCTION (Updated)
 // =========================
 function bookTaxi() {
+  // 1. Fetching all values
   let name = document.getElementById("name").value.trim();
   let phone = document.getElementById("phone").value.trim();
   let pickup = document.getElementById("pickupCity").value.trim();
   let drop = document.getElementById("dropCity").value.trim();
+  let date = document.getElementById("bookingDate").value;
+  let tripType = document.getElementById("tripType").value;
+  let passengers = document.getElementById("passengers").value;
   let car = document.getElementById("car").value;
 
-  if (name === "" || phone === "" || pickup === "" || drop === "") {
-    alert("Please fill all details");
+  // PREMIUM ADDITION: Get button reference for animation
+  const btn = document.querySelector(".confirm-btn");
+  const originalText = btn.innerHTML;
+
+  // 2. Validation (Checking if all required fields are filled)
+  if (!name || !phone || !pickup || !drop || !date) {
+    alert("Please fill in all the details before booking.");
     return;
   }
 
+  // 3. Phone number length check
   if (phone.length < 10) {
-    alert("Enter a valid 10-digit phone number");
+    alert("Please enter a valid 10-digit mobile number.");
     return;
   }
 
-  let message = `🚖 *New Taxi Booking* %0A` +
-                `*Name:* ${name}%0A` +
-                `*Phone:* ${phone}%0A` +
-                `*Pickup:* ${pickup}%0A` +
-                `*Drop:* ${drop}%0A` +
-                `*Car:* ${car}`;
+  // PREMIUM ADDITION: Visual Feedback
+  btn.innerHTML = "Processing...";
+  btn.style.opacity = "0.7";
+  btn.disabled = true;
 
-  let number = "91XXXXXXXXXX"; // REPLACE WITH YOUR REAL NUMBER
-  window.open(`https://wa.me/${number}?text=${message}`, "_blank");
-  alert("Booking request sent to WhatsApp!");
+  // 4. Formatting the WhatsApp Message (Premium Look with Emojis)
+  let message = `🚖 *GUJARAT TAXI - NEW BOOKING*%0A` +
+                `--------------------------%0A` +
+                `👤 *Name:* ${name}%0A` +
+                `📞 *Phone:* ${phone}%0A` +
+                `📅 *Date:* ${date}%0A` +
+                `--------------------------%0A` +
+                `📍 *Pickup:* ${pickup}%0A` +
+                `🏁 *Drop:* ${drop}%0A` +
+                `🛣️ *Trip Type:* ${tripType}%0A` +
+                `--------------------------%0A` +
+                `👥 *Passengers:* ${passengers}%0A` +
+                `🚗 *Vehicle:* ${car}%0A` +
+                `--------------------------%0A` +
+                `_Request sent from Website_`;
+
+  // 5. Replace with your actual WhatsApp Number
+  let number = "919000000000"; // Important: Include '91' but no '+' sign
+
+  // 6. Open WhatsApp (Wrapped in timeout for "Premium" smoothness)
+  setTimeout(() => {
+    window.open(`https://wa.me{number}?text=${message}`, "_blank");
+
+    // PREMIUM ADDITION: Show Success Popup
+    const modal = document.getElementById("successModal");
+    modal.style.display = "flex";
+    setTimeout(() => modal.classList.add("active"), 10);
+
+    // Reset Button state
+    btn.innerHTML = originalText;
+    btn.style.opacity = "1";
+    btn.disabled = false;
+  }, 800);
 }
+
+// Function to close the success popup
+function closeModal() {
+  const modal = document.getElementById("successModal");
+  modal.classList.remove("active");
+  
+  // Wait for the popup animation to finish (300ms)
+  setTimeout(() => {
+    modal.style.display = "none";
+    
+    // --- FORM RESET LOGIC ---
+    document.getElementById("name").value = "";
+    document.getElementById("phone").value = "";
+    document.getElementById("pickupCity").value = "";
+    document.getElementById("dropCity").value = "";
+    
+    // Reset dropdowns to first option
+    document.getElementById("tripType").selectedIndex = 0;
+    document.getElementById("passengers").selectedIndex = 0;
+    document.getElementById("car").selectedIndex = 0;
+
+    // Keep the date set to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById("bookingDate").value = today;
+  }, 300);
+}
+
+
+
 
 // =========================
 // AUTO-FILL ON BOOK.HTML LOAD
@@ -330,3 +397,152 @@ window.addEventListener("load", () => {
   }, 3000);
 
 });
+
+
+/* for fade animation in about.html page */
+document.addEventListener("DOMContentLoaded", function () {
+  const stats = document.querySelectorAll(".stat-box");
+
+  const observerOptions = {
+    threshold: 0.2, // Triggers when 20% of the box is visible
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Adds a small delay for each box to create the "one-by-one" effect
+        setTimeout(() => {
+          entry.target.classList.add("active");
+        }, index * 200); // 200ms delay between each stat
+        
+        observer.unobserve(entry.target); // Stops watching once it has appeared
+      }
+    });
+  }, observerOptions);
+
+  stats.forEach((stat) => {
+    observer.observe(stat);
+  });
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const stats = document.querySelectorAll(".stat-box");
+
+// ---- for about.html ---- //
+  // --- THE COUNTING LOGIC ---
+  const startCounting = (el) => {
+    const target = +el.getAttribute("data-target"); // Gets the number from data-target
+    const speed = target / 100; // Adjusts speed based on the number size
+
+    const updateCount = () => {
+      const current = +el.innerText;
+      if (current < target) {
+        el.innerText = Math.ceil(current + speed);
+        setTimeout(updateCount, 20); // Frequency of the update (in ms)
+      } else {
+        el.innerText = target; // Ensures it ends exactly on the target number
+      }
+    };
+    updateCount();
+  };
+
+  // --- THE SCROLL OBSERVER ---
+  const observerOptions = { threshold: 0.3 };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        // 1. Trigger the Fade-In Animation
+        entry.target.classList.add("active");
+
+        // 2. Start the Counter for the number inside
+        const counterElement = entry.target.querySelector(".counter");
+        if (counterElement) {
+          startCounting(counterElement);
+        }
+
+        // 3. Stop watching this box so it only animates once
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  stats.forEach((stat) => observer.observe(stat));
+});
+
+// --- for index.html ---- //
+/* =========================
+   PREMIUM COUNTING EFFECT
+========================= */
+
+const counters = document.querySelectorAll('.counter');
+
+const speed = 100;
+
+const startCounting = () => {
+
+  counters.forEach(counter => {
+
+    const updateCount = () => {
+
+      const target = +counter.getAttribute('data-target');
+
+      const count = +counter.innerText;
+
+      const increment = target / speed;
+
+      if(count < target){
+
+        counter.innerText = Math.ceil(count + increment);
+
+        setTimeout(updateCount, 20);
+
+      } else {
+
+        // FORMAT 10000 -> 10K
+        if(target >= 1000){
+
+          counter.innerText = (target / 1000) + "K";
+
+        } else {
+
+          counter.innerText = target;
+
+        }
+
+      }
+
+    };
+
+    updateCount();
+
+  });
+
+};
+
+/* START WHEN SECTION VISIBLE */
+
+const infoStrip = document.querySelector('.info-strip');
+
+const observerCounter = new IntersectionObserver((entries) => {
+
+  entries.forEach(entry => {
+
+    if(entry.isIntersecting){
+
+      startCounting();
+
+      observerCounter.disconnect();
+
+    }
+
+  });
+
+}, { threshold: 0.5 });
+
+observerCounter.observe(infoStrip);
+
+
+

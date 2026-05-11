@@ -107,25 +107,54 @@ body { font-family: Arial; margin:0; background: #f9f9f9; }
 .route-card {
   background: #fff;
   border-radius: 25px;
-  overflow: visible; 
+  overflow: hidden;   /* IMPORTANT */
   text-align: center;
+
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
   margin-top: 30px;
+
   border: 1px solid #eee;
 }
 
 .car-img-container {
-  padding: 20px;
-  height: 160px;
+  width: 100%;
+  height: 220px;
+
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+
+  background: transparent; /* IMPORTANT */
 }
 
 .car-img-container img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
+
   object-fit: contain;
+
+  transition: 0.4s ease;
+}
+
+/* PREMIUM CARD HOVER */
+.route-card{
+  transition:
+  transform 0.4s ease,
+  box-shadow 0.4s ease,
+  border 0.4s ease;
+}
+
+.route-card:hover{
+
+  transform: translateY(-10px) scale(1.02);
+
+  box-shadow:
+  0 0 25px rgba(252,213,53,0.4),
+  0 0 60px rgba(252,213,53,0.25);
+
+  border: 1px solid #fcd535;
 }
 
 .route-card h3 {
@@ -248,12 +277,19 @@ body { font-family: Arial; margin:0; background: #f9f9f9; }
 }
 
 /* DARK OVERLAY */
-.slide::before {
+.slide::before{
   content: "";
   position: absolute;
+
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: 100%;
+
   background: rgba(0,0,0,0.6);
+
+  z-index: 1;
 }
 
 .slide h1, .slide p {
@@ -266,14 +302,16 @@ body { font-family: Arial; margin:0; background: #f9f9f9; }
 }
 
 /* content */
-.content {
+.content{
   position: absolute;
   top: 50%;
   left: 10%;
   transform: translateY(-50%);
-  color: white;
-}
 
+  color: white;
+
+  z-index: 5;
+}
 /* TEXT ANIMATION */
 .title {
   font-size: 50px;
@@ -294,6 +332,10 @@ body { font-family: Arial; margin:0; background: #f9f9f9; }
   opacity: 0;
   transform: translateY(30px);
   transition: 0.5s;
+}
+.buttons{
+  position: relative;
+  z-index: 10;
 }
 
 /* ACTIVE ANIMATION DELAYS */
@@ -362,9 +404,21 @@ body { font-family: Arial; margin:0; background: #f9f9f9; }
   height: 100%;
 
   background: #fcd535;
+
   transition: 0.4s ease;
 
-  z-index: -1;
+  z-index: 0;
+}
+
+/* KEEP TEXT ABOVE YELLOW */
+.btn{
+  z-index: 1;
+}
+
+/* TEXT INSIDE BUTTON */
+.btn span{
+  position: relative;
+  z-index: 2;
 }
 
 /* HOVER EFFECT */
@@ -1185,31 +1239,85 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  padding: 50px;
+  gap: 50px; /* Increased gap for better breathing room */
+  padding: 60px 20px;
+  background: #0f1216; /* Deep dark background */
 }
 
 .stat-box {
   text-align: center;
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Optional: Subtle connecting line between circles */
+.stat-box:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: -45px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, #fcd535, transparent);
+  opacity: 0.3;
 }
 
 .stat-box img {
-  width: 80px;
-  height: 80px;
+  width: 110px; 
+  height: 110px;
   border-radius: 50%;
   background: #1e2329;
-  padding: 10px;
+  padding: 0; /* Removed padding to let the image go edge-to-edge */
+  border: 3px solid #fcd535;
+  object-fit: cover; /* This fixes the fitting issue perfectly */
+  object-position: center;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .stat-box h2 {
-  margin-top: 10px;
+  margin-top: 15px;
   color: #fcd535;
+  font-size: 2.2rem;
+  font-weight: bold;
+  /* Added to keep number and + on same line */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stat-box p {
-  color: #ccc;
+  color: #aaa;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
+
+/* Initial hidden state */
+.stat-box {
+  opacity: 0;
+  transform: translateY(30px); /* Moves it down slightly */
+  transition: all 0.8s ease-out; /* Controls the speed of the fade */
+}
+
+/* State when visible on scroll */
+.stat-box.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fix for the counting span inherited colors */
+.stat-box h2 .counter {
+  color: inherit;
+  font-weight: inherit;
+}
+
+
+
+
+/* TESTIMONIALS */
 /* TESTIMONIALS */
 .testimonials {
   padding: 50px;
@@ -1218,21 +1326,57 @@ body {
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-top: 30px;
 }
 
+/* Updated Card with Hover Effect */
 .testimonial-card {
   background: #1e2329;
   padding: 20px;
   border-radius: 10px;
+  transition: transform 0.3s ease; /* Makes it smooth when you hover */
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px); /* Premium lift effect */
 }
 
 .testimonial-card img {
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  object-fit: cover; /* Keeps faces from looking stretched */
+  margin-bottom: 10px;
+}
+
+/* New: Rating and Google Icon alignment */
+.rating-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.google-icon {
+  width: 25px !important;
+  height: 25px !important;
+  display: inline-block !important;
+  border-radius: 0 !important; /* Ensures Google G is not circular */
+  transform: translateY(2px);
+}
+
+.testimonial-card h4 {
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.testimonial-card p {
+  color: #ccc;
+  font-size: 0.9rem;
 }
 
 .nav-links a.active {
@@ -1241,10 +1385,15 @@ body {
   padding-bottom: 5px;
 }
 
+/* Mobile Fix: Stack cards on smaller screens */
+@media (max-width: 992px) {
+  .testimonial-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 /* MOBILE RESPONSIVE */
 @media (max-width: 768px) {
-
-
   /* HERO TEXT */
   .hero h1 {
     font-size: 28px;
@@ -1269,9 +1418,15 @@ body {
     flex-direction: column;
   }
 
-  /* TESTIMONIAL */
+  /* TESTIMONIAL MOBILE FIX */
   .testimonial-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* This keeps it from being tiny on mobile */
+    gap: 15px;
+    padding: 10px;
+  }
+  
+  .testimonial-card {
+    max-width: 100%; /* Ensures it fills the screen width */
   }
 
   /* SERVICE BLOCK */
@@ -1279,7 +1434,6 @@ body {
     height: auto;
     padding: 40px 20px;
   }
-
 }
 
 .menu-toggle {
