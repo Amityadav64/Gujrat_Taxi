@@ -1079,6 +1079,9 @@ body {
   border-radius: 10px;
   color: white;
 }
+.info-box p {
+  padding-left: 30px;
+}
 
 /* FLOAT WHATSAPP */
 /* UPDATED WHATSAPP FLOAT */

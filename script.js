@@ -52,27 +52,30 @@ function bookTaxi() {
   btn.disabled = true;
 
   // 4. Formatting the WhatsApp Message (Premium Look with Emojis)
-  let message = `🚖 *GUJARAT TAXI - NEW BOOKING*%0A` +
-                `--------------------------%0A` +
-                `👤 *Name:* ${name}%0A` +
-                `📞 *Phone:* ${phone}%0A` +
-                `📅 *Date:* ${date}%0A` +
-                `--------------------------%0A` +
-                `📍 *Pickup:* ${pickup}%0A` +
-                `🏁 *Drop:* ${drop}%0A` +
-                `🛣️ *Trip Type:* ${tripType}%0A` +
-                `--------------------------%0A` +
-                `👥 *Passengers:* ${passengers}%0A` +
-                `🚗 *Vehicle:* ${car}%0A` +
-                `--------------------------%0A` +
-                `_Request sent from Website_`;
+  let message = 
+`*GUJARAT TAXI - NEW BOOKING*
+--------------------------
+*Name:* ${name}
+*Phone:* ${phone}
+*Date:* ${date}
+--------------------------
+*Pickup:* ${pickup}
+*Drop:* ${drop}
+*Trip Type:* ${tripType}
+--------------------------
+*Passengers:* ${passengers}
+*Vehicle:* ${car}
+--------------------------
+_Request sent from Website_`;
+
+message = encodeURIComponent(message);
 
   // 5. Replace with your actual WhatsApp Number
-  let number = "919000000000"; // Important: Include '91' but no '+' sign
+  let number = "916387573278"; // Important: Include '91' but no '+' sign
 
   // 6. Open WhatsApp (Wrapped in timeout for "Premium" smoothness)
   setTimeout(() => {
-    window.open(`https://wa.me{number}?text=${message}`, "_blank");
+    window.open(`https://wa.me/${number}?text=${message}`, "_blank");
 
     // PREMIUM ADDITION: Show Success Popup
     const modal = document.getElementById("successModal");
@@ -216,7 +219,7 @@ function sendWhatsApp() {
   }
 
   // 4. Success - Prepare and Send
-  const phone = "919876543210"; 
+  const phone = "916387573278"; 
   
   // Professional WhatsApp formatting using bold tags (*)
   let text = `*New Contact Message*%0A` +
@@ -231,7 +234,7 @@ function sendWhatsApp() {
 }
 
 function quickWhatsApp() {
-  const phone = "919876543210"; 
+  const phone = "916387573278"; 
   
   // Get current hour to decide greeting
   const hour = new Date().getHours();
@@ -543,6 +546,7 @@ const observerCounter = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 observerCounter.observe(infoStrip);
+
 
 
 
