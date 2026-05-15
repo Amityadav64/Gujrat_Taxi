@@ -177,18 +177,28 @@
 }
 
 /* Premium Select Styling with Corrected Arrow Icon */
+/* Premium Select Styling with Arrow */
+
 .booking-form-card select {
+
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'%3E%3C/path%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 15px center;
-  background-size: 15px; /* Adjusts the size of the arrow */
+
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  padding-right: 40px; /* Prevents text from overlapping the arrow */
-}
 
+  padding-right: 45px;
+
+  background-color: white;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 15px center;
+
+  background-size: 15px;
+}
 
 /* for calendar */
 input[type="date"] {
@@ -338,16 +348,52 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     margin-bottom: 15px;
   }
 
-  .booking-form-card input, 
-  .booking-form-card select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    font-size: 1rem;
-    box-sizing: border-box; 
-    outline: none;
-  }
+ /* INPUT FIELDS */
+
+.booking-form-card input {
+
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+
+  background-color: white;
+}
+
+
+/* SELECT DROPDOWN FIELDS */
+
+.booking-form-card select {
+
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  outline: none;
+
+  cursor: pointer;
+
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  padding-right: 45px;
+
+  background-color: white;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  background-repeat: no-repeat;
+
+  background-position: right 15px center;
+
+  background-size: 15px;
+}
 
   .confirm-btn {
     background: #ffb400;
